@@ -1,0 +1,85 @@
+
+html {
+    color-scheme: dark;
+  }
+
+body{
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    perspective: 1000px;
+
+}
+
+img{
+    max-width: 100%;
+}
+
+.yoda{
+    width: 300px;
+    
+    aspect-ratio: 9 / 16;  /* trabalha a propoção da imagem */
+    transform-style: preserve-3d;
+    background-size: cover;
+    background-position: -150px center;
+    position: relative;
+    transition: rotate 400ms ease;
+
+}
+
+.yoda:hover{
+    rotate: x 35deg;
+}
+
+.yoda::before{
+    content:'';
+    position: absolute;
+    inset: 0;
+    background: green;
+    z-index: 100;
+    background-image: radial-gradient(circle, transparent 150px, black);
+    opacity: 0;
+    transition: opacity 400ms;
+
+}
+
+.yoda:hover::before{
+    opacity: 1;
+}
+
+.yoda::after{
+    content: "";
+    position: absolute;
+    inset: 80% .5rem .5rem;
+    translate: 0;
+    transform: translateZ(-100px);
+    background: black;
+    filter: blur(1rem);
+    z-index: 1;
+    transition: rotate 400ms, translate 400ms;
+}
+
+.yoda:hover::after{
+    rotate: x -30deg;
+    translate: 0 60px;
+}
+
+.bg-image{
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    object-fit: cover;
+    object-position: -150px center;
+}
+
+
+.logo,
+.front-image{
+    position: absolute;
+    
+}
+
+.front-image{
+    opacity: 0;
+}
+
